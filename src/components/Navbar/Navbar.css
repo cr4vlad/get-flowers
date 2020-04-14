@@ -1,0 +1,21 @@
+.navbar{
+  margin: 10px auto;
+  height: 174px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+.navigation{
+  height: 74px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 100px;
+  background-image: linear-gradient(236deg, #14aa9c 0%, #61ea83 50%, #14aa9c 100%);
+  z-index: 3;
+}
