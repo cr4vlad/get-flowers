@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import LandingCategory from '../components/LandingCategory'
+import LandingPage from '../components/LandingPage'
 
 export default function Landing () {
   return (
@@ -10,7 +10,7 @@ export default function Landing () {
         <meta name='description' content='Get Flowers delivery service' />
       </Helmet>
 
-      <LandingCategory />
+      <LandingPage />
     </>
   )
 }

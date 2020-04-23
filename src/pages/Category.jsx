@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import ProductCard from '../components/ProductCard'
+import CategoryPage from '../components/CategoryPage'
 
 export default function Category () {
   return (
@@ -10,7 +10,7 @@ export default function Category () {
         <meta name='description' content='Category 1' />
       </Helmet>
 
-      <ProductCard />
+      <CategoryPage />
     </>
   )
 }
