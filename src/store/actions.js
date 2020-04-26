@@ -19,10 +19,34 @@ export const updateDeliveryInfo = deliveryInfo => {
 
 export const fetchProducts = () => {
   return dispatch => {
-    axios.get(`${URL}/products/`).then(res => {
-      dispatch(updateProducts(res.data))
+    console.log('fetchProducts start')
+    axios.get(`${URL}/categories/`).then(res => {
+      const categories = res.data.results
+
+      axios.get(`${URL}/products/`).then(res => {
+        const arr = categories.map(category => {
+          return [ category.id, { 
+            title: category.title,
+            products: res.data.results.filter(product => {
+              return product.category === category.id
+            })
+          }]
+        })
+        const products = Object.fromEntries(arr) // {cId: {title, [products]}, ...}
+        /*let products = categories.map(category => {
+          return { ...category, 
+            products: res.data.filter(product => {
+              return product.category === category.id
+            })
+          }
+        })*/
+        console.log('products dispatching to redux state:', products)
+        dispatch(updateProducts(products))
+      }).catch(error => {
+        console.log('fetchProducts error while getting products, status', error.response)
+      })
     }).catch(error => {
-      console.log('updateProducts error, status', error.response)
+      console.log('fetchProducts error while getting categories, status', error.response)
     })
   }
 }
@@ -33,7 +57,7 @@ export const addOrder = order => {
       console.log('Added order:', order)
       console.log('Result:', res)
       const deliveryInfo = {}
-      for (const i in order) {
+      for (var i in order) {
         if (i !== 'product') {
           deliveryInfo[i] = order[i]
         }

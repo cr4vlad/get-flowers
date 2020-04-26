@@ -1,8 +1,8 @@
 import * as actionTypes from './actionTypes'
 
 const initialState = {
-  products: [],
-  deliveryInfo: []
+  products: {},
+  deliveryInfo: {}
 }
 
 const getProducts = (state, action) => {

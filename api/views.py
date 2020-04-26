@@ -1,7 +1,6 @@
 from rest_framework import viewsets
-from .serializers import OrderSerializer
-from .serializers import ProductSerializer
-from getflowers.models import Order, Product
+from .serializers import OrderSerializer, ProductSerializer, CategorySerializer
+from getflowers.models import Order, Product, Category
 
 class ProductViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -9,6 +8,14 @@ class ProductViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+
+
+class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint that allows categories to be viewed.
+    """
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
 
 class OrderViewSet(viewsets.ModelViewSet):

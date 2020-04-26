@@ -1,16 +1,24 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 import CategoryPage from '../components/CategoryPage'
 
-export default function Category () {
-  return (
-    <>
-      <Helmet>
-        <title>Category 1 | Get Flowers</title>
-        <meta name='description' content='Category 1' />
-      </Helmet>
+class Category extends React.Component {
+  render () {
+    return (
+      <>
+        <Helmet>
+          <title>{ this.props.category.title } | Get Flowers</title>
+          <meta name='description' content='Category 1' />
+        </Helmet>
 
-      <CategoryPage />
-    </>
-  )
+        <CategoryPage category={this.props.category} />
+      </>
+    )
+  }
 }
+
+const mapStateToProps = state => ({ category: state.products[this.props.match.params.categoryId] })
+
+export default withRouter(connect(mapStateToProps, null)(Category))
