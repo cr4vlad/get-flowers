@@ -1,10 +1,20 @@
 import React from 'react'
-import LandingCategory from '../LandingCategory'
+import LandingCategoryContainer from '../../containers/LandingCategoryContainer'
 
 export default function LandingPage (props) {
-  const ids = Object.keys(props.products)
+  const { categories } = props
 
-  return ( // for each category:
-    <LandingCategory category={props.products[0]} id={ids[0]} />
+  if (!categories) {
+    return (
+      <p>Loading categories...</p>
+    )
+  }
+
+  return (
+    <>
+      { categories.map(category => (
+        <LandingCategoryContainer key={category.id} id={category.id} />
+      ))}
+    </>
   )
 }

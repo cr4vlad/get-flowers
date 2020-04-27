@@ -1,24 +1,39 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import CategoryPage from '../components/CategoryPage'
 
-class Category extends React.Component {
-  render () {
+function Category (props) {
+  console.log(props.match.params.categoryId)
+  if (props.category) {
     return (
       <>
         <Helmet>
-          <title>{ this.props.category.title } | Get Flowers</title>
-          <meta name='description' content='Category 1' />
+          <title>{`${props.category.title} | Get Flowers`}</title>
+          <meta name='description' content={props.category.title} />
         </Helmet>
 
-        <CategoryPage category={this.props.category} />
+        <CategoryPage title={props.category.title} products={props.products} />
       </>
     )
   }
+
+  return (
+    <>
+      <Helmet title="Loading category... | Get Flowers" />
+
+      <p>Loading category...</p>
+    </>
+  )
 }
 
-const mapStateToProps = state => ({ category: state.products[this.props.match.params.categoryId] })
+const mapStateToProps = (state, ownProps) => {
+  return {
+    products: state.data.products[ownProps.match.params.categoryId],
+    category: state.data.categories.filter(category => {
+      return category.id === ownProps.match.params.categoryId
+    })
+  }
+}
 
-export default withRouter(connect(mapStateToProps, null)(Category))
+export default connect(mapStateToProps, null)(Category)

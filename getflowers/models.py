@@ -16,12 +16,6 @@ class Category(models.Model):
 class Product(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=255)
-
-      #(ROSES, 'Букеты из роз'),
-      #(TULIPS, 'Тюльпаны'),
-      #(BOXES, 'Цветы в коробке'),
-      #(FLOWERS, 'Букеты цветов')
-
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     logo = models.FileField(upload_to='logos/%Y/', null=True, max_length=255)
     price = models.DecimalField(max_digits=7, decimal_places=2)

@@ -4,10 +4,16 @@ import './ProductCard.css'
 export default function ProductCard (props) {
   const { product } = props
 
+  if (!product) {
+    return (
+      <p>Loading product...</p>
+    )
+  }
+
   return (
     <div className='card'>
       <div className='imgBlock'>
-        <img alt={product.title} className='img' src={product.logo} />
+        <img alt={product.title} src={product.logo} />
       </div>
 
       <h6 className='title'>{product.title}</h6>

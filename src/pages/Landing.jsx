@@ -3,24 +3,21 @@ import { Helmet } from 'react-helmet'
 import { connect } from 'react-redux'
 import LandingPage from '../components/LandingPage'
 
-class Landing extends React.Component {
-  render () {
+function Landing (props) {
+  if (!props.categories) {
     return (
-      <>
-        <Helmet>
-          <title>Get Flowers</title>
-          <meta name='description' content='Get Flowers delivery service' />
-        </Helmet>
-
-        { this.props.products ? ( <LandingPage products={this.props.products} /> ) : (<p>No products</p>) }
-      </>
+      <p>Loading...</p>
     )
   }
+
+  return (
+    <LandingPage categories={props.categories} />
+  )
 }
 
 const mapStateToProps = state => {
   return {
-    products: state.products
+    categories: state.data.categories
   }
 }
 
