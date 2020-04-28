@@ -1,8 +1,8 @@
 # python
 env/
 __pycache__/
+db.sqlite3
 *.pyc
-static/
 
 # npm
 node_modules/
