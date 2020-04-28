@@ -1,7 +1,6 @@
 # python
 env/
 __pycache__/
-db.sqlite3
 *.pyc
 static/
 
@@ -9,12 +8,5 @@ static/
 node_modules/
 dist/
 
-# GCP
-python-docs-samples/
-google-cloud-sdk/
-cloud_sql_proxy
-.vscode/settings.json
-
 # production
-/build
 /logos
