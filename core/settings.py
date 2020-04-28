@@ -87,13 +87,26 @@ REST_FRAMEWORK = {
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if os.getenv('DEBUG_DATABASE', None) == 'sqlite':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'HOST': 'ec2-46-137-177-160.eu-west-1.compute.amazonaws.com',
+            'NAME': 'db6qipkj29grrh',
+            'USER': 'gwxqgkbjedbmik',
+            'PASSWORD': '223ba15bb5c4e827714c7d988eee9758ec436d377bbf25456ff772c493a14c6e',
+        }
+    }
 
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -145,3 +158,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'build', 'static')
 STATICFILES_DIRS = []
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
