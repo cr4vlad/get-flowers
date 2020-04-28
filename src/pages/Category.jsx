@@ -4,25 +4,28 @@ import { connect } from 'react-redux'
 import CategoryPage from '../components/CategoryPage'
 
 function Category (props) {
-  console.log(props.match.params.categoryId)
-  if (props.category) {
+  if (props.category[0] && props.category[0].title && props.products) {
+    const title = props.category[0].title
+
     return (
       <>
         <Helmet>
-          <title>{`${props.category.title} | Get Flowers`}</title>
-          <meta name='description' content={props.category.title} />
+          <title>{`${title} | Get Flowers`}</title>
+          <meta name='description' content={title} />
         </Helmet>
 
-        <CategoryPage title={props.category.title} products={props.products} />
+        <CategoryPage title={title} products={props.products} />
       </>
     )
   }
 
+  console.log('props.category[0]:', props.category[0])
+  console.log('props.products:', props.products)
   return (
     <>
-      <Helmet title="Loading category... | Get Flowers" />
+      <Helmet title='Loading category... | Get Flowers' />
 
-      <p>Loading category...</p>
+      <p className='loading'>Loading category...</p>
     </>
   )
 }

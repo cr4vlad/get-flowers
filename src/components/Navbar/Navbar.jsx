@@ -22,11 +22,11 @@ export default function Navbar (props) {
 
           <div className='menu'>
             {props.categories.map(category => (
-            <div className='category'>
-              <Link to={`/category/${category.id}`} className='link'>
-                {category.title}
-              </Link>
-            </div>
+              <div key={category.id} className='category'>
+                <Link to={`/category/${category.id}`} className='link'>
+                  {category.title}
+                </Link>
+              </div>
             ))}
           </div>
         </div>

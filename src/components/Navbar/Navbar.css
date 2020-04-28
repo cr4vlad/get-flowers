@@ -6,6 +6,7 @@ header {
   z-index: 5000;
   height: 85px;
   display: block;
+  background-color: white;
 }
 
 header .wrapper {
@@ -13,10 +14,10 @@ header .wrapper {
   margin: 0 auto;
   padding: 0 30px;
   position: relative;
-  top: 10px;
+  top: 6px;
 }
 
-.nav--desktop {
+header .nav--desktop {
   display: table;
   width: 100%;
 }
@@ -31,13 +32,13 @@ h1 .title {
   height: 60px;
 }
 
-.menu {
+header .menu {
   display: table-cell;
   height: 100%;
   text-align: right;
 }
 
-.menu .category {
+header .menu .category {
   display: inline-block;
   height: 100%;
   text-align: right;
@@ -45,7 +46,7 @@ h1 .title {
   text-transform: uppercase;
 }
 
-.link {
+header .link {
   display: block;
   padding-top: 30px;
   padding-bottom: 30px;

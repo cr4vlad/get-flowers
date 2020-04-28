@@ -10,6 +10,12 @@ body {
   background-color: white !important;
 }
 
+p.loading {
+  position: relative;
+  top: 100px;
+  padding-left: 50px;
+}
+
 /* Montserrat fonts */
 /* cyrillic-ext */
 @font-face {

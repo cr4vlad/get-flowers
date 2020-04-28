@@ -1,18 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
-function NavbarContainer (props) {
+function FooterContainer (props) {
   if (!props.categories) {
-    console.log('NavbarContainer props.categories:', props.categories)
+    console.log('FooterContainer props.categories:', props.categories)
 
     return (
-      <p>Loading categories...</p>
+      <p>Loading footer...</p>
     )
   }
 
   return (
-    <Navbar categories={props.categories} />
+    <Footer categories={props.categories} />
   )
 }
 
@@ -25,4 +25,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   null
-)(NavbarContainer)
+)(FooterContainer)

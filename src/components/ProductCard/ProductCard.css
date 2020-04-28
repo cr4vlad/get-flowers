@@ -1,45 +1,62 @@
 .card {
-  padding: 25px 0 54px;
-  margin: 10px;
-  transition: all 0.2s;
-  position: relative;
-  border-radius: 15px;
+  max-height: 455px;
   text-align: center;
-  border-left: 30px solid rgba(255, 255, 255, 0);
-  border-right: 30px solid rgba(255, 255, 255, 0);
 }
 
-.card:hover{
-  border-radius: 20px;
-  filter: drop-shadow(0px 27px 22.5px rgba(0,0,0,0.07));
-  background-color: #fff;
-}
-
-.card .imgBlock {
-  height: 239px;
+.card .img-block {
+  max-height: 360px;
+  max-width: 360px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 
 .card img {
-  height: auto;
-  width: 100%;
-  max-width: 175px;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
 }
 
 .card .title {
-  margin-top: 17px;
-  font-size: 22px;
-  color: #1b1b1b;
-  height: 95px;
+  margin: 10px auto;
+  font-size: 1.1em;
+  font-weight: normal;
 }
 
-.card .price {
+.card .price-line {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  letter-spacing: 0px;
-  color: #1b1b1b;
-  font-size: 20px;
+  width: 70%;
+  height: 40px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.card .order {
+  height: 37px;
+  line-height: 1.1em;
+  font-size: 1.2em;
+  border: solid 2px black;
+  padding: 8px 10px;
+  font-weight: normal;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0;
+  letter-spacing: 1px;
+  width: auto;
+  cursor: pointer;
+  background-color: white;
+}
+
+.card .order:hover {
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,0.8) 0%, rgba(164,201,246,0.8) 100%); 
+}
+
+.card .order:active {
+  background: rgb(236,166,197);
+  background: radial-gradient(circle, rgba(236,166,197,1) 0%, rgba(164,201,246,1) 100%);
 }

@@ -6,21 +6,21 @@ export default function ProductCard (props) {
 
   if (!product) {
     return (
-      <p>Loading product...</p>
+      <p className='loading'>Loading product...</p>
     )
   }
 
   return (
     <div className='card'>
-      <div className='imgBlock'>
+      <div className='img-block'>
         <img alt={product.title} src={product.logo} />
       </div>
 
-      <h6 className='title'>{product.title}</h6>
+      <h3 className='title'>{product.title}</h3>
 
-      <div className='priceLine'>
-        <h6 className='price'> {product.price} грн</h6>
-        <button>Замовити</button>
+      <div className='price-line'>
+        <p> {product.price} грн</p>
+        <button className='order'>Заказать</button>
       </div>
     </div>
   )

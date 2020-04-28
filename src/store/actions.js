@@ -25,21 +25,19 @@ export const fetchProducts = () => {
       const categories = res.data.results
 
       axios.get(`${URL}/products/`).then(res => {
-        
         const arr = categories.map(category => {
-          return [category.id, 
+          return [category.id,
             res.data.results.filter(product => {
               return product.category === category.id
             })
           ]
         })
-        
+
         const products = Object.fromEntries(arr) // {cId: [products], ...}
 
         console.log('categories dispatching to redux state:', categories)
         console.log('products dispatching to redux state:', products)
         dispatch(updateProducts(categories, products))
-
       }).catch(error => {
         console.log('fetchProducts error while getting products, status', error.response)
       })
