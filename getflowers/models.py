@@ -17,7 +17,7 @@ class Product(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=255)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    logo = models.FileField(upload_to='logos/', null=True, max_length=255)
+    logo = models.CharField(max_length=255) # corresponding image title with file format in src/assets/products/{category} (not ImageField because heroku doesn't save static files)
     price = models.DecimalField(max_digits=7, decimal_places=2)
 
     def __str__(self):

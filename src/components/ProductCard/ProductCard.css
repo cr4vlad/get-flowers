@@ -49,6 +49,7 @@
   width: auto;
   cursor: pointer;
   background-color: white;
+  -webkit-tap-highlight-color: rgba(236,166,197,1);
 }
 
 .card .order:hover {

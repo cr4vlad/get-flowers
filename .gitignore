@@ -13,3 +13,4 @@ dist/
 # production
 /build
 /media
+/static*
