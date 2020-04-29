@@ -1,6 +1,8 @@
 .card {
   max-height: 455px;
   text-align: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .card .img-block {

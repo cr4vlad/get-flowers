@@ -18,7 +18,7 @@ class Product(models.Model):
     title = models.CharField(max_length=255)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     logo = models.CharField(max_length=255) # corresponding image title with file format in src/assets/products/{category} (not ImageField because heroku doesn't save static files)
-    price = models.DecimalField(max_digits=7, decimal_places=2)
+    price = models.DecimalField(max_digits=7, decimal_places=0)
 
     def __str__(self):
         return self.title + " - UAH " + str(self.price)

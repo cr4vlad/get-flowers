@@ -22,12 +22,12 @@ export const fetchProducts = () => {
   return dispatch => {
     console.log('fetchProducts start')
     axios.get(`${URL}/categories/`).then(res => {
-      const categories = res.data.results
+      const categories = res.data
 
       axios.get(`${URL}/products/`).then(res => {
         const arr = categories.map(category => {
           return [category.id,
-            res.data.results.filter(product => {
+            res.data.filter(product => {
               return product.category === category.id
             })
           ]
