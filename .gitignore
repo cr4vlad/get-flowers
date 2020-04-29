@@ -13,4 +13,4 @@ dist/
 # production
 /build
 /media
-/static*
+/staticfiles
