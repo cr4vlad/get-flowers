@@ -13,7 +13,7 @@ export default function ProductCard (props) {
   return (
     <div className='card'>
       <div className='img-block'>
-        <img alt={product.title} src={product.logo} />
+        <img alt={product.title} src={require(`../../assets/products/${product.category}/${product.logo}`)} />
       </div>
 
       <h3 className='title'>{product.title}</h3>
