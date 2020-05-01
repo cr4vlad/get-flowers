@@ -2,7 +2,8 @@ import React from 'react'
 import './CreateOrder.css'
 
 export default function CreateOrder (props) {
-  const { onSubmit, onChange, name, address, phone_number, product, onClose } = props
+  const { onSubmit, onChange, name, address, phone_number, product, onClose, formErrors } = props
+  console.log('formErrors:', formErrors)
   if (!onSubmit || !onChange || !product || !onClose) {
     console.log('CreateOrder props:', props)
     return (
@@ -59,6 +60,15 @@ export default function CreateOrder (props) {
                 required
               />
             </div>
+
+            {(formErrors.length > 0) && (
+            <ul>
+              {formErrors.map(error => (
+              <li>{error}</li>
+              ))}
+            </ul>
+            )}
+
             <input type='submit' value='Заказать' />
           </form>
         </div>
