@@ -33,4 +33,4 @@ class Order(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.address + " - " + str(self.time)
+        return self.product.title + " - " + str(self.time)
