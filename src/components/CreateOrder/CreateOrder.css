@@ -1,0 +1,137 @@
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  cursor: pointer;
+  background-color: #d3d3d3;
+  opacity: 0.8;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  top: 170px;
+  left: 50%;
+  margin-left: -380px;
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  background-color: white;
+  overflow: auto;
+  z-index: 1000000;
+  box-shadow: 0px 10px 80px rgba(0,0,0,0.25);
+}
+
+.modal .header {
+  width: 100%;
+}
+
+.modal .header > h3 {
+  display: inline-block;
+  font-weight: normal;
+  line-height: 1.4;
+  font-size: 1.5em;
+  padding-left: calc(27px + 19px);
+}
+
+.modal .header > img {
+  float: right;
+  padding-right: 27px;
+  padding-top: 27px;
+  cursor: pointer;
+}
+
+.modal .body {
+  width: 100%;
+  border-top: 1px solid black;
+}
+
+.modal .product {
+  display: block;
+  width: 100%;
+  padding: 0 30px;
+  padding-top: 30px;
+}
+
+.modal .product > img {
+  display: inline-block;
+  max-height: 200px;
+  float: left;
+  margin-right: 30px;
+}
+
+.modal .text {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  margin-bottom: 10px;
+  min-height: 40px;
+}
+
+.modal .text .title {
+  max-width: 380px;
+  text-align: left;
+}
+
+form .fields {
+  display: block;
+  margin-right: 30px;
+}
+
+input[type="text"],
+input[type="tel"] {
+  width: 100%;
+  height: 41px;
+  max-width: 470px;
+  padding: 10px 20px;
+  border-radius: 0;
+  border: 1px solid black;
+  outline: none;
+  font-size: 1.15em;
+  filter: none;
+}
+::-webkit-input-placeholder { /* Chrome */
+  color: #bbb;
+  opacity: 1;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #bbb;
+  opacity: 1;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #bbb;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: #bbb;
+  opacity: 1;
+}
+
+.middle-field {
+  margin: 10px 0;
+}
+
+input[type="submit"] {
+  width: 100%;
+  border: none;
+  background-color: black;
+  color: white;
+  line-height: 1.3em;
+  font-size: 1.39em;
+  font-weight: normal;
+  letter-spacing: 1px;
+  padding-top: 1.2em;
+  padding-bottom: 1.2em;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 60px white inset !important;
+}

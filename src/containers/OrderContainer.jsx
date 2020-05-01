@@ -7,34 +7,53 @@ class OrderContainer extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      name: '',
-      address: '',
-      phone_number: '',
-      product: ''
+      name: (this.props.deliveryInfo.name ? this.props.deliveryInfo.name : ''),
+      address: (this.props.deliveryInfo.address ? this.props.deliveryInfo.address : ''),
+      phone_number: (this.props.deliveryInfo.phone_number ? this.props.deliveryInfo.phone_number : '')
     }
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   handleSubmit = e => {
     e.preventDefault()
-    addOrder(this.state)
+    const orderInfo = { ...this.state, product: this.props.product.id }
+    this.props.newOrder(orderInfo)
+    this.props.onClose()
   }
 
   render () {
+    const { name, address, phone_number } = this.state
+
     return (
-      <>
-        <CreateOrder onSubmit={this.handleSubmit} />
-      </>
+      <CreateOrder
+        onSubmit={this.handleSubmit}
+        onChange={this.handleChange}
+        name={name}
+        address={address}
+        phone_number={phone_number}
+        product={this.props.product}
+        onClose={this.props.onClose}
+      />
     )
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapStateToProps = state => {
   return {
-    addOrder: () => dispatch(addOrder(ownProps))
+    deliveryInfo: state.data.deliveryInfo
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    newOrder: order => dispatch(addOrder(order))
   }
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(OrderContainer)

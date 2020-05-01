@@ -4,7 +4,7 @@ from getflowers.models import Product, Order, Category
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['title', 'category', 'logo', 'price']
+        fields = ['id', 'title', 'category', 'logo', 'price']
 
 
 class CategorySerializer(serializers.ModelSerializer):

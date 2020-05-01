@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './ProductCard.css'
+import OrderContainer from '../../containers/OrderContainer'
 
 export default function ProductCard (props) {
+  const [showModal, setModal] = useState(false)
   const { product } = props
 
   if (!product) {
@@ -16,12 +18,13 @@ export default function ProductCard (props) {
         <img alt={product.title} src={require(`../../assets/products/${product.category}/${product.logo}`)} />
       </div>
 
-      <h3 className='title'>{product.title}</h3>
+      <h3 className='card-title'>{product.title}</h3>
 
       <div className='price-line'>
         <p> {product.price} грн</p>
-        <button className='order'>Заказать</button>
+        <button onClick={() => setModal(true)} className='order'>Заказать</button>
       </div>
+      {showModal && (<OrderContainer product={product} onClose={() => setModal(false)} />)}
     </div>
   )
 }

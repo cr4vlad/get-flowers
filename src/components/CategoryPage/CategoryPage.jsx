@@ -22,7 +22,7 @@ export default function CategoryPage (props) {
 
         <div className='grid-container--category'>
           {products.map(product => (
-            <ProductCard key={product.title} product={product} />
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </article>

@@ -2,6 +2,7 @@ import axios from 'axios'
 import * as actionTypes from './actionTypes'
 
 const URL = 'https://get-flowers.herokuapp.com/api'
+// const URL = 'http://localhost:8000/api'
 
 export const updateProducts = (categories, products) => {
   return {

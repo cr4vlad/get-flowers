@@ -23,7 +23,7 @@ export default function LandingCategory (props) {
 
       <div className='grid-container--landing'>
         {products.slice(0, 3).map(product => (
-          <ProductCard key={product.title} product={product} />
+          <ProductCard key={product.id} product={product} showModal={props.showModal} />
         ))}
       </div>
 
