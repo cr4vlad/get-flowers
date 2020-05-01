@@ -1,6 +1,9 @@
 import axios from 'axios'
 import * as actionTypes from './actionTypes'
 
+axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN'
+axios.defaults.xsrfCookieName = 'csrftoken'
+
 const URL = 'https://get-flowers.herokuapp.com/api'
 // const URL = 'http://localhost:8000/api'
 
