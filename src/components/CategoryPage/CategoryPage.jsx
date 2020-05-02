@@ -13,9 +13,11 @@ export default function CategoryPage (props) {
     )
   }
 
+  const heroImage = require(`../../assets/${products[0].category}.jpg`)
+
   return (
     <>
-      <div className='hero-image' />
+      <div className='hero-image' style={{background: "center / cover no-repeat url('" + heroImage + "')"}} />
 
       <article>
         <h2 className='category'>{title}</h2>
