@@ -4,10 +4,20 @@ import logo from '../../assets/getflowers.svg'
 import { Link } from 'react-router-dom'
 
 export default function Navbar (props) {
-  if (!props.categories) {
-    return (
-      <p>Loading categories...</p>
-    )
+  const toggleMobileMenu = () => {
+    const mobileMenu = document.getElementsByClassName('mobile-menu')[0]
+
+    switch (window.getComputedStyle(mobileMenu).display) {
+      case 'none':
+        mobileMenu.style.display = 'block'
+        break
+      case 'block':
+        mobileMenu.style.display = 'none'
+        break
+      default:
+        console.log('Invalid display value of mobile-menu')
+        break
+    }
   }
 
   return (
@@ -20,14 +30,16 @@ export default function Navbar (props) {
             </Link>
           </h1>
 
-          <div className='menu'>
-            {props.categories.map(category => (
-              <div key={category.id} className='category'>
-                <Link to={`/category/${category.id}`} className='link'>
-                  {category.title}
-                </Link>
-              </div>
-            ))}
+          <div className='menu' onClick={(props.screenWidth <= 920) ? toggleMobileMenu : undefined}>
+            <div className='mobile-menu'>
+              {props.categories.map(category => (
+                <div key={category.id} className='category'>
+                  <Link to={`/category/${category.id}`} className='link'>
+                    {category.title}
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

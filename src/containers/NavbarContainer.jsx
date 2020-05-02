@@ -2,18 +2,40 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Navbar from '../components/Navbar'
 
-function NavbarContainer (props) {
-  if (!props.categories) {
-    console.log('NavbarContainer props.categories:', props.categories)
-
-    return (
-      <p>Loading categories...</p>
-    )
+class NavbarContainer extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      screenWidth: window.innerWidth
+    }
   }
 
-  return (
-    <Navbar categories={props.categories} />
-  )
+  componentDidMount() {
+    window.addEventListener("resize", this.updateWindowDimensions)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions)
+  }
+
+  updateWindowDimensions = () => {
+    this.setState({ screenWidth: window.innerWidth })
+  }
+
+  render () {
+    if (!this.props.categories || !this.state.screenWidth) {
+      console.log('NavbarContainer props.categories:', this.props.categories)
+      console.log('NavbarContainer state.screenWidth:', this.state.screenWidth)
+
+      return (
+        <p className='loading'>Loading categories...</p>
+      )
+    }
+
+    return (
+      <Navbar categories={this.props.categories} screenWidth={this.state.screenWidth} />
+    )
+  }
 }
 
 const mapStateToProps = state => {

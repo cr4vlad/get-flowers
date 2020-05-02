@@ -38,7 +38,7 @@ header .menu {
   text-align: right;
 }
 
-header .menu .category {
+header .category {
   display: inline-block;
   height: 100%;
   text-align: right;
@@ -53,4 +53,74 @@ header .link {
   margin-left: 30px;
   text-decoration: none;
   color: black;
+}
+
+@media screen and (max-width: 920px) {
+  header {
+    height: 70px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h1 .title {
+    height: 50px;
+    margin-left: 25px;
+  }
+
+  header .menu {
+    width: 25px;
+    cursor: pointer;
+    right: 0;
+    background: url("//cdn.shopify.com/s/files/1/1132/3440/t/4/assets/nav.svg?v=13525773726332029513") no-repeat left 0 center;
+  }
+
+  @media (min-width: 601px) {
+    header .mobile-menu {
+      display: none;
+      background-color: white;
+      position: fixed;
+      top: 70px;
+      z-index: 5000;
+      right: 0;
+      border-left: 1px solid #000;
+      border-bottom: 1px solid #000;
+      width: 340px;
+      animation-duration: 0.2s;
+      animation-fill-mode: both;
+      animation-name: slideInRight;
+    }
+  }
+
+  header .category {
+    width: calc(100% - 60px);
+    height: auto;
+    margin: 0 30px;
+    text-align: left;
+  }
+
+  header .category:not(:last-child) {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+
+  header .link {
+    font-size: 0.85em;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-left: 0;
+    letter-spacing: 1px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header .mobile-menu {
+    display: none;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    top: 65px;
+    left: 0;
+    z-index: 5000;
+  }
 }
