@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Navbar from '../components/Navbar'
+import { updateScreenWidth } from '../store/actions'
 
 class NavbarContainer extends React.Component {
   constructor (props) {
@@ -8,6 +9,7 @@ class NavbarContainer extends React.Component {
     this.state = {
       screenWidth: window.innerWidth
     }
+    this.props.setScreenWidth(window.innerWidth)
   }
 
   componentDidMount() {
@@ -20,6 +22,7 @@ class NavbarContainer extends React.Component {
 
   updateWindowDimensions = () => {
     this.setState({ screenWidth: window.innerWidth })
+    this.props.setScreenWidth(window.innerWidth)
   }
 
   render () {
@@ -44,7 +47,13 @@ const mapStateToProps = state => {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    setScreenWidth: screenWidth => dispatch(updateScreenWidth(screenWidth))
+  }
+}
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(NavbarContainer)

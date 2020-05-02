@@ -22,6 +22,13 @@ export const updateDeliveryInfo = deliveryInfo => {
   }
 }
 
+export const updateScreenWidth = screenWidth => {
+  return {
+    type: actionTypes.SET_SCREEN_WIDTH,
+    screenWidth: screenWidth
+  }
+}
+
 export const fetchProducts = () => {
   return dispatch => {
     console.log('fetchProducts start')

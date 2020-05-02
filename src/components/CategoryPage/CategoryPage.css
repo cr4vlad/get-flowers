@@ -34,3 +34,9 @@ h2.category {
   max-width: 1180px;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 800px) {
+  .grid-container--category {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

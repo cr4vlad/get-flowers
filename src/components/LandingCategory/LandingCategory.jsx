@@ -4,16 +4,20 @@ import { Link } from 'react-router-dom'
 import './LandingCategory.css'
 
 export default function LandingCategory (props) {
-  const { category, products } = props
+  const { category, products, screenWidth } = props
 
-  if (!category || !products) {
+  if (!category || !products || !screenWidth) {
     console.log('LandingCategory props.category:', category)
     console.log('LandingCategory props.products:', products)
+    console.log('LandingCategory props.screenWidth:', screenWidth)
 
     return (
       <p className='loading'>Loading category...</p>
     )
   }
+
+  let rowItems = 3
+  if (screenWidth < 800) rowItems = 2
 
   return (
     <>
@@ -22,7 +26,7 @@ export default function LandingCategory (props) {
       </Link>
 
       <div className='grid-container--landing'>
-        {products.slice(0, 3).map(product => (
+        {products.slice(0, rowItems).map(product => (
           <ProductCard key={product.id} product={product} showModal={props.showModal} />
         ))}
       </div>
