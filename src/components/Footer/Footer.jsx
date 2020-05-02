@@ -23,6 +23,7 @@ export default function Footer (props) {
           </>
         </div>
 
+        { (props.screenWidth > 600) && (
         <div className='block'>
           <div className='title'>
             О Нас
@@ -31,11 +32,9 @@ export default function Footer (props) {
           <div className='title'>
             <p>Дарить цветы - это красиво, а дарить цветы, которые нравятся всем - это гарантировано поднять настроение получателю! Поэтому решив подарить букет красивых цветов - закажите их у нас!</p>
             <p>Мы доставляем цветы по всей Украине, а в Киеве находится наш крупный цветочный магазин. Наша курьерская служба доставки цветов в Киеве GetFlowers с удовольствием и в срок выполнит адресную доставку цветов в нужный район города всего за 2 часа!</p>
-            <Link to='/' className='link copyright'>
-              © Copyright GetFlowers 2020
-            </Link>
           </div>
         </div>
+        )}
 
         <div className='block'>
           <div className='title'>
@@ -48,6 +47,10 @@ export default function Footer (props) {
           </>
         </div>
       </div>
+
+      <Link to='/' className='copyright'>
+        © Copyright GetFlowers 2020
+      </Link>
     </footer>
   )
 }

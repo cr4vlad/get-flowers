@@ -33,10 +33,23 @@ h2.category {
   grid-row-gap: 20px;
   max-width: 1180px;
   margin: 0 auto;
+  padding: 0 30px;
 }
 
 @media screen and (max-width: 800px) {
   .grid-container--category {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  h2.category {
+    font-size: 2em;
+    line-height: 1.05em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  h2.category {
+    font-size: 1.5em;
+    line-height: 1em;
   }
 }

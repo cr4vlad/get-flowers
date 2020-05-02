@@ -124,3 +124,9 @@ header .link {
     z-index: 5000;
   }
 }
+
+@media screen and (max-width: 400px) {
+  header .wrapper {
+    padding: 0 10px;
+  }
+}

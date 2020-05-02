@@ -36,7 +36,7 @@ export default function CreateOrder (props) {
                 name='name'
                 onChange={props.onChange}
                 value={name}
-                placeholder='Ф.И.О. получателя'
+                placeholder='Полное имя получателя'
                 required
                 autoFocus
               />

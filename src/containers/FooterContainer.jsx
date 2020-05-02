@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import Footer from '../components/Footer'
 
 function FooterContainer (props) {
-  if (!props.categories) {
+  if (!props.categories || !props.screenWidth) {
     console.log('FooterContainer props.categories:', props.categories)
+    console.log('FooterContainer props.screenWidth:', props.screenWidth)
 
     return (
       <p>Loading footer...</p>
@@ -12,13 +13,14 @@ function FooterContainer (props) {
   }
 
   return (
-    <Footer categories={props.categories} />
+    <Footer categories={props.categories} screenWidth={props.screenWidth} />
   )
 }
 
 const mapStateToProps = state => {
   return {
-    categories: state.data.categories
+    categories: state.data.categories,
+    screenWidth: state.data.screenWidth
   }
 }
 
