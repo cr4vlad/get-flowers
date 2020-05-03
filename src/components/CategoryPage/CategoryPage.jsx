@@ -17,7 +17,7 @@ export default function CategoryPage (props) {
 
   return (
     <>
-      <div className='hero-image' style={{background: "center / cover no-repeat url('" + heroImage + "')"}} />
+      <div className='hero-image' style={{ background: "center / cover no-repeat url('" + heroImage + "')" }} />
 
       <article>
         <h2 className='category'>{title}</h2>

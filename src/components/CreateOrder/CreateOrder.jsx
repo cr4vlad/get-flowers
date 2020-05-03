@@ -62,11 +62,11 @@ export default function CreateOrder (props) {
             </div>
 
             {(formErrors.length > 0) && (
-            <ul>
-              {formErrors.map(error => (
-              <li>{error}</li>
-              ))}
-            </ul>
+              <ul>
+                {formErrors.map(error => (
+                  <li key={error}>{error}</li>
+                ))}
+              </ul>
             )}
 
             <input type='submit' value='Заказать' />

@@ -44,6 +44,7 @@
 8. Run server
 
     $ python manage.py runserver
+
 9. Create some products for testing.
     1. Login in `http://localhost:8000/admin/`
     2. Enter Products in ziteno section
