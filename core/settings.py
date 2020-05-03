@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(9m=q+l#(y*4#+q&&0+%poj(3b$v20b$+u*9!4*0=n6mvr)fwr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://get-flowers.herokuapp.com/']
 
