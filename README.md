@@ -1,7 +1,14 @@
 # Get Flowers
- Flowers delivery service
+ Flowers delivery service, hosted on heroku - https://get-flowers.herokuapp.com/
 
 ## Frontend
+
+### Local launch
+  
+1. Install dependencies:
+    $ npm install
+2. Run locally:
+    $ npm start
 
 ### Used frontend packages
 * react
